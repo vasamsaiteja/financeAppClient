@@ -3,9 +3,12 @@ dependencies:
   '@testing-library/react': 11.2.5_react-dom@17.0.1+react@17.0.1
   '@testing-library/user-event': 12.6.2
   chalk: 4.1.0
+  js-cookie: 3.0.1
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
+  react-file-reader: 1.1.4
   react-router-dom: 5.2.0_react@17.0.1
+  react-toastify: 8.1.0_react-dom@17.0.1+react@17.0.1
 devDependencies:
   eslint-config-airbnb: 18.2.1
   eslint-config-prettier: 8.1.0
@@ -4745,6 +4748,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ==
+  /clsx/1.1.1:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
   /co/4.6.0:
     dev: true
     engines:
@@ -8538,6 +8547,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-jxTmrvuecVISvKFFhOkjsWRZV7sFqdSUAd1ajOKY+/QE/aLBVstsJ/dX8GczLzwiT6ZEwwmZqtCUHLHHQVzcfA==
+  /js-cookie/3.0.1:
+    dev: false
+    engines:
+      node: '>=12'
+    resolution:
+      integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==
   /js-tokens/4.0.0:
     resolution:
       integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
@@ -11187,6 +11202,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==
+  /react-file-reader/1.1.4:
+    dependencies:
+      prop-types: 15.8.1
+      uuid4: 1.1.4
+    dev: false
+    resolution:
+      integrity: sha512-xTeHFrDIopZpzk4aMZyILzIQbytQ6GCKR32/7kBDzO5lrAr1idbK5PkmpjP4wnT9s5F+TALviuhnWk8UeksddA==
   /react-is/16.13.1:
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -11307,6 +11329,17 @@ packages:
         optional: true
     resolution:
       integrity: sha512-S5eO4vjUzUisvkIPB7jVsKtuH2HhWcASREYWHAQ1FP5HyCv3xgn+wpILAEWkmy+A+tTNbSZClhxjT3qz6g4L1A==
+  /react-toastify/8.1.0_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      clsx: 1.1.1
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    resolution:
+      integrity: sha512-M+Q3rTmEw/53Csr7NsV/YnldJe4c7uERcY7Tma9mvLU98QT2VhIkKwjBzzxZkJRk/oBKyUAtkyMjMgO00hx6gQ==
   /react/17.0.1:
     dependencies:
       loose-envify: 1.4.0
@@ -13220,6 +13253,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+  /uuid4/1.1.4:
+    dev: false
+    resolution:
+      integrity: sha512-Gr1q2k40LpF8CokcnQFjPDsdslzJbTCTBG5xQIEflUov431gFkY5KduiGIeKYAamkQnNn4IfdHJbLnl9Bib8TQ==
   /v8-compile-cache/2.3.0:
     dev: true
     resolution:
@@ -13841,10 +13878,13 @@ specifiers:
   eslint-config-prettier: 8.1.0
   eslint-plugin-prettier: 3.3.1
   husky: 4.3.8
+  js-cookie: 3.0.1
   lint-staged: 10.5.4
   npm-run-all: 4.1.5
   prettier: 2.2.1
   react: 17.0.1
   react-dom: 17.0.1
+  react-file-reader: 1.1.4
   react-router-dom: 5.2.0
   react-scripts: 4.0.3
+  react-toastify: 8.1.0

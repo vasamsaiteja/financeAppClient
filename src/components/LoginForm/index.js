@@ -1,5 +1,6 @@
 import {Component} from 'react'
-
+import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 import './index.css'
 
 class LoginForm extends Component {
@@ -18,8 +19,9 @@ class LoginForm extends Component {
     this.setState({password: event.target.value})
   }
 
-  onSubmitSuccess = () => {
+  onSubmitSuccess = jwtToken => {
     const {history} = this.props
+    Cookies.set('jwtToken', jwtToken, {expires: 30})
 
     history.replace('/')
   }
@@ -30,9 +32,12 @@ class LoginForm extends Component {
 
   submitForm = async event => {
     event.preventDefault()
+
     const {username, password} = this.state
     const userDetails = {username, password}
-    const url = 'https://vassam-sai-financepeer.herokuapp.com/login'
+    console.log('Submit form clicked', userDetails)
+    // const url = 'https://vassam-sai-financepeer.herokuapp.com/login'
+    const url = 'http://localhost:3000/login'
     const options = {
       method: 'POST',
       body: JSON.stringify(userDetails),
@@ -42,8 +47,9 @@ class LoginForm extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
+    console.log(data)
     if (response.ok === true) {
-      this.onSubmitSuccess()
+      this.onSubmitSuccess(data.jwtToken)
     } else {
       this.onSubmitFailure(data.error_msg)
     }
@@ -91,6 +97,11 @@ class LoginForm extends Component {
 
   render() {
     const {showSubmitError, errorMsg} = this.state
+    const jwtToken = Cookies.get('jwtToken')
+
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <div className="login-form-container">
         <h1 className="company-heading">FinancePeer Company</h1>

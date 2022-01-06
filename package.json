@@ -11,9 +11,12 @@
     "@testing-library/react": "11.2.5",
     "@testing-library/user-event": "12.6.2",
     "chalk": "4.1.0",
+    "js-cookie": "3.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-router-dom": "5.2.0"
+    "react-file-reader": "1.1.4",
+    "react-router-dom": "5.2.0",
+    "react-toastify": "8.1.0"
   },
   "devDependencies": {
     "eslint-config-airbnb": "18.2.1",
