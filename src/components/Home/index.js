@@ -45,7 +45,7 @@ class Home extends Component {
   postListToDb = async () => {
     const {dbPostList} = this.state
 
-    const url = 'http://localhost:3000/posts'
+    const url = 'https://vassam-sai-financepeer.herokuapp.com/posts'
     const options = {
       method: 'POST',
       body: dbPostList,
