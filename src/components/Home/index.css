@@ -1,0 +1,36 @@
+.posts-container {
+  display: flex;
+  /* justify-content: center; */
+
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.post-container {
+  background: #e2e8d5;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  margin: 0 2%;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  width: 35%;
+}
+.heading {
+  height: 126px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.image {
+  width: 100%;
+  height: 210px;
+}
+.main-heading {
+  color: #0b69ff;
+  font-family: 'Roboto';
+  font-weight: bold;
+  text-align: center;
+}
+.title {
+  text-align: start;
+}

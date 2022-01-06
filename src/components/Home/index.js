@@ -1,84 +1,96 @@
 import {Component} from 'react'
 // import ReactFileReader from 'react-file-reader'
 import Cookies from 'js-cookie'
+import Posts from '../Posts'
+
+import './index.css'
 
 class Home extends Component {
   state = {
     postsList: [],
+    isLoading: false,
+    showPost: false,
+    dbPostList: [],
+  }
+
+  componentDidMount() {
+    this.getPosts()
+  }
+
+  getPosts = async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const getPostsList = await res.json()
+    console.log('check', getPostsList)
+    this.setState({
+      postsList: getPostsList,
+    })
   }
 
   handleFileChange = async e => {
     const reader = new FileReader()
     reader.readAsText(e.target.files[0])
     reader.onload = () => {
-      this.setState(
-        {
-          postsList: reader.result,
-        },
-        () => this.postListToDb(),
-      )
+      this.setState({
+        dbPostList: reader.result,
+      })
     }
     reader.onerror = () => {
       console.log('file error', reader.error)
     }
+    this.setState({
+      showPost: true,
+    })
   }
 
   postListToDb = async () => {
-    const {postsList} = this.state
+    const {dbPostList} = this.state
 
-    console.log('postsList inside', postsList)
     const url = 'http://localhost:3000/posts'
     const options = {
       method: 'POST',
-      body: JSON.stringify(postsList),
+      body: dbPostList,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }
     const response = await fetch(url, options)
     const data = await response.json()
     console.log('data', data)
   }
 
-  //   handleFiles = async files => {
-  //     const response = await fetch('../../../src/data.json', {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Accept: 'application/json',
-  //       },
-  //     })
-
-  //     console.log('res', response)
-  //   }
-
-  //   postResponse = async () => {
-  //     // reader.result
-
-  //     const url = 'http://localhost:3000/posts'
-  //     const options = {
-  //       method: 'POST',
-  //       body: postList,
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     }
-  //     const response = await fetch(url, options)
-  //     // const data = await response.json()
-  //     console.log(response)
-  //   }
-
   render() {
-    const {postsList} = this.state
+    const {postsList, showPost} = this.state
 
+    console.log('postsList inside', postsList)
     Cookies.remove('jwtToken')
-
     return (
       <div>
-        <h1>Hello, welcome to the HOme page.</h1>
-        <input type="file" onChange={this.handleFileChange} />
-
-        {/* <ReactFileReader handleFiles={this.handleFiles} fileTypes={['.json']}>
-          <button className="btn" type="button">
-            Upload
-          </button>
-        </ReactFileReader> */}
+        <div className="main-container">
+          <h1 className="main-heading">FinancePeer Home</h1>
+        </div>
+        {showPost ? (
+          <ul>
+            {postsList &&
+              postsList.map(each => (
+                <li className="post-container" key={each.title}>
+                  <h1 className="heading">{each.title}</h1>
+                  <img
+                    className="image"
+                    src="https://banner2.cleanpng.com/20180605/wzl/kisspng-computer-icons-image-file-formats-no-image-5b16ff0d4b81e2.4246835515282337413093.jpg"
+                    alt="post"
+                  />
+                  <p>{each.body}</p>
+                </li>
+              ))}
+          </ul>
+        ) : (
+          <div className="post-container">
+            <h1 className="main-heading title">
+              Hello, welcome to the Home page.
+            </h1>
+            <input type="file" onChange={this.handleFileChange} />
+          </div>
+        )}
       </div>
     )
   }
