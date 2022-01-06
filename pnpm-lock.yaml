@@ -5,6 +5,7 @@ dependencies:
   chalk: 4.1.0
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
+  react-router-dom: 6.2.1_react-dom@17.0.1+react@17.0.1
 devDependencies:
   eslint-config-airbnb: 18.2.1
   eslint-config-prettier: 8.1.0
@@ -7136,6 +7137,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+  /history/5.2.0:
+    dependencies:
+      '@babel/runtime': 7.16.7
+    dev: false
+    resolution:
+      integrity: sha512-uPSF6lAJb3nSePJ43hN3eKj1dTWpN9gMod0ZssbFTIsen+WehTmEadgL+kg78xLJFdRfrrC//SavDzmRVdE+Ig==
   /hmac-drbg/1.0.1:
     dependencies:
       hash.js: 1.1.7
@@ -11161,6 +11168,27 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
+  /react-router-dom/6.2.1_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      history: 5.2.0
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      react-router: 6.2.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    resolution:
+      integrity: sha512-I6Zax+/TH/cZMDpj3/4Fl2eaNdcvoxxHoH1tYOREsQ22OKDYofGebrNm6CTPUcvLvZm63NL/vzCYdjf9CUhqmA==
+  /react-router/6.2.1_react@17.0.1:
+    dependencies:
+      history: 5.2.0
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: '>=16.8'
+    resolution:
+      integrity: sha512-2fG0udBtxou9lXtK97eJeET2ki5//UWfQSl1rlJ7quwe6jrktK9FCCc8dQb5QY6jAv3jua8bBQRhhDOM/kVRsg==
   /react-scripts/4.0.3_react@17.0.1:
     dependencies:
       '@babel/core': 7.12.3
@@ -13759,4 +13787,5 @@ specifiers:
   prettier: 2.2.1
   react: 17.0.1
   react-dom: 17.0.1
+  react-router-dom: 6.2.1
   react-scripts: 4.0.3
