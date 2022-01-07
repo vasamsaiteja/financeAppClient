@@ -1,7 +1,6 @@
 import {Component} from 'react'
 // import ReactFileReader from 'react-file-reader'
 import Cookies from 'js-cookie'
-import Posts from '../Posts'
 
 import './index.css'
 
@@ -76,7 +75,7 @@ class Home extends Component {
                   <h1 className="heading">{each.title}</h1>
                   <img
                     className="image"
-                    src="https://banner2.cleanpng.com/20180605/wzl/kisspng-computer-icons-image-file-formats-no-image-5b16ff0d4b81e2.4246835515282337413093.jpg"
+                    src="https://res.cloudinary.com/saiteja68/image/upload/v1641530800/financePeer_Image_g7wfjx.png"
                     alt="post"
                   />
                   <p>{each.body}</p>
